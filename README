@@ -1,4 +1,4 @@
-cRabbitPopulation
+# cRabbitPopulation
 
 Simule une population de lapins en prenant en compte leur probabilité de survivre
 ainsi que leur probabilité de donner naissance à l'aide de nombres pseudo-aléatoires.
