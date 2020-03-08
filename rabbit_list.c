@@ -120,7 +120,7 @@ void display_rabbit(rabbit_t rabbit)
 
 
 //affiche l'age et le sexe de chaque lapin de la liste
-void display_list(list_rabbit_t list_rabbit)
+void display_rabbit_all(list_rabbit_t list_rabbit)
 {
 	while(!empty(list_rabbit))
 	{

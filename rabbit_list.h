@@ -30,7 +30,7 @@ list_rabbit_t delete_head(list_rabbit_t list_rabbit);
 list_rabbit_t delete_dead(list_rabbit_t list_rabbit);
 int nb_element(list_rabbit_t list_rabbit);
 void display_rabbit(rabbit_t rabbit);
-void display_list(list_rabbit_t list_rabbit);
+void display_rabbit_all(list_rabbit_t list_rabbit);
 void display_death(list_rabbit_t list_rabbit);
 
 
