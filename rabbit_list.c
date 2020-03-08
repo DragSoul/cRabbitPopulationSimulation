@@ -61,6 +61,44 @@ list_rabbit_t delete_head(list_rabbit_t list_rabbit)
 }
 
 
+list_rabbit_t delete_dead(list_rabbit_t list_rabbit)
+{
+	list_rabbit_t tmp, previous;
+	
+	if(empty(list_rabbit)) // si la liste est NULL on s'arrete tout de suite
+		return list_rabbit;
+
+	previous = list_rabbit;
+	while(!empty(previous) && !previous->rabbit.alive) // Verifie la tete de liste, cas particulier
+	{
+		list_rabbit = previous->next;
+		free(previous);
+		previous = list_rabbit;
+	}
+
+	if(!empty(previous))
+		tmp = previous->next; // le cas n est gere on se place donc sur le cas n+1
+	else tmp = NULL;
+
+
+	while(!empty(tmp)) // On Mouline est on supprime si on trouve l'element
+	{
+		//supprime les morts à la suite les uns des autres
+		while(!empty(tmp) && !tmp->rabbit.alive)
+		{
+			previous->next = tmp->next;
+			free(tmp);
+			tmp = previous->next;
+		}
+
+		previous = tmp;
+		if(!empty(tmp))
+			tmp = tmp->next;
+	}
+	return list_rabbit;
+}
+
+
 //affiche le nombre d'elements d'une liste
 int nb_element(list_rabbit_t list_rabbit)
 {

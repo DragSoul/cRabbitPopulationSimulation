@@ -1,5 +1,6 @@
 #include "rabbit.h"
 
+int nb_loop = 1;
 //creer automatiquement un lapin male ou femele
 rabbit_t new_rabbit()
 {
@@ -41,7 +42,7 @@ Boolean give_birth(rabbit_t rabbit)
 Boolean survive(rabbit_t rabbit)
 {
     double random = genrand_real2();
-    printf("%f\n", random);
+    printf("nb_loop = %d\t%f\t", nb_loop, random);
     if(rabbit.nb_month < 6)
     {
         printf("%d\n", random < 0.35);
@@ -108,6 +109,7 @@ list_rabbit_t survive_all(list_rabbit_t list_rabbit)
     while(ltmp != NULL)
     {
         ltmp->rabbit.alive = survive(ltmp->rabbit);
+        ltmp->rabbit.nb_month++;
         ltmp = ltmp->next;
     }
 	return list_rabbit;
@@ -120,17 +122,11 @@ void realistic_simulation()
     init_by_array(init, length);
 
     //initialisation de la liste avec quelques lapins
+    int nb_rabbit = 300;
     list_rabbit_t l = new_list();
-    rabbit_t r1 = new_rabbit();
-    rabbit_t r2 = new_rabbit();
-    rabbit_t r3 = new_rabbit();
-    rabbit_t r4 = new_rabbit();
-    rabbit_t r5 = new_rabbit();
-    l = add_head(l, r1);
-    l = add_head(l, r2);
-    l = add_head(l, r3);
-    l = add_head(l, r4);
-    l = add_head(l, r5);
+    for(int i = 0; i < nb_rabbit; i++){
+        l = add_head(l, new_rabbit());
+    }
 
 
     for(int month = 0; month < 5; month++){
@@ -140,6 +136,8 @@ void realistic_simulation()
 
         //supprimer les lapins morts, faire des listes doublement chainées ?
         l = survive_all(l);
+        nb_loop++;
+        l = delete_dead(l);
     }
     display_death(l);
 }

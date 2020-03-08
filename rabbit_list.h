@@ -27,6 +27,7 @@ rabbit_t head(list_rabbit_t list_rabbit);
 Boolean empty(list_rabbit_t list_rabbit);
 list_rabbit_t add_head(list_rabbit_t list_rabbit, rabbit_t rabbit);
 list_rabbit_t delete_head(list_rabbit_t list_rabbit);
+list_rabbit_t delete_dead(list_rabbit_t list_rabbit);
 int nb_element(list_rabbit_t list_rabbit);
 void display_rabbit(rabbit_t rabbit);
 void display_list(list_rabbit_t list_rabbit);
