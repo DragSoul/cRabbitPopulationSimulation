@@ -2,15 +2,24 @@
 
 int nb_loop = 1;
 //creer automatiquement un lapin male ou femele
-rabbit_t new_rabbit(int month)
+rabbit_t new_rabbit(int years)
 {
     rabbit_t rabbit;
-    rabbit.nb_month = month;
+    rabbit.nb_years = years;
     rabbit.alive = true;
     rabbit.sexe = round(genrand_real2());
     return rabbit;
 }
 
+
+rabbit_t new_rabbit2(int years, sexe_t sexe)
+{
+    rabbit_t rabbit;
+    rabbit.nb_years = years;
+    rabbit.alive = true;
+    rabbit.sexe = sexe;
+    return rabbit;
+}
 
 sexe_t is_male(rabbit_t rabbit)
 {
@@ -29,7 +38,7 @@ Boolean give_birth(rabbit_t rabbit)
 {
     if(is_female(rabbit))
     {
-        if(rabbit.nb_month > 4)
+        if(rabbit.nb_years > 0)
         {
             return true;
         }
@@ -50,32 +59,32 @@ Boolean survive(rabbit_t rabbit)
 {
     double random = genrand_real2();
     //printf("nb_loop = %d\t%f\t", nb_loop, random);
-    if(rabbit.nb_month < 6)
+    if(rabbit.nb_years < 1)
     {
         //printf("%d\n", random < 0.35);
         return random < 0.35;
     }
-    if(rabbit.nb_month < 132)
+    if(rabbit.nb_years < 11)
     {
         //printf("%d\n", random < 0.5);
         return random < 0.5;
     }
-    if(rabbit.nb_month < 144)
+    if(rabbit.nb_years < 12)
     {
         //printf("%d\n", random < 0.4);
         return random < 0.4;
     }
-    if(rabbit.nb_month < 156)
+    if(rabbit.nb_years < 13)
     {
         //printf("%d\n", random < 0.3);
         return random < 0.3;
     }
-    if(rabbit.nb_month < 178)
+    if(rabbit.nb_years < 14)
     {
         //printf("%d\n", random < 0.2);
         return random < 0.2;
     }
-    if(rabbit.nb_month < 180)
+    if(rabbit.nb_years < 15)
     {
         //printf("%d\n", random < 0.1);
         return random < 0.1;
@@ -94,17 +103,23 @@ Boolean is_alive(rabbit_t rabbit)
 //car doit d'abord enlever les lapins morts)
 list_rabbit_t give_birth_all(list_rabbit_t list_rabbit)
 {
-    int random = (int)round(uniform(3, 6));
+    int nb_liters;
+    int nb_birth;
     rabbit_t rabbit;
     list_rabbit_t ltmp = list_rabbit;
     while(ltmp != NULL)
     {
         if(give_birth(ltmp->rabbit))
         {
-            for(int i = 0; i < random; i++)
+            nb_liters = (int)round(uniform(5, 7));
+            for(int i = 0; i < nb_liters; i++)
             {
-                rabbit = new_rabbit(0);
-                list_rabbit = add_head(list_rabbit, rabbit);
+                nb_birth = (int)round(uniform(3, 6));
+                for(int j = 0; j < nb_birth; j++)
+                {
+                    rabbit = new_rabbit(0);
+                    list_rabbit = add_head(list_rabbit, rabbit);
+                }
             }
         }
         
@@ -121,7 +136,7 @@ list_rabbit_t survive_all(list_rabbit_t list_rabbit)
     while(ltmp != NULL)
     {
         ltmp->rabbit.alive = survive(ltmp->rabbit);
-        ltmp->rabbit.nb_month++;
+        ltmp->rabbit.nb_years++;
         ltmp = ltmp->next;
     }
 	return list_rabbit;
@@ -134,24 +149,26 @@ void realistic_simulation()
     init_by_array(init, length);
 
     //initialisation de la liste avec quelques lapins
-    int nb_rabbit = 20;
+    int nb_rabbit = 1;
     list_rabbit_t l = new_list();
     for(int i = 0; i < nb_rabbit; i++){
-        l = add_head(l, new_rabbit(5));
+        l = add_head(l, new_rabbit2(5, male));
+        l = add_head(l, new_rabbit2(5, female));
     }
 
 
-    for(int month = 0; month < 5; month++){
+    for(int years = 0; years < 15; years++){
         //vérifier qu'il reste au moins un male...
         l = give_birth_all(l);
-        printf("after  birth %d : \n", nb_loop);
-        display_rabbit_all(l);
+        //printf("after  birth %d : \n", nb_loop);
+        //display_rabbit_all(l);
 
         l = survive_all(l);
         
         l = delete_dead(l);
-        printf("after  death %d : \n", nb_loop);
-        display_rabbit_all(l);
+        //printf("after  death %d : \n", nb_loop);
+        //display_rabbit_all(l);
+        printf("nb_years : %d, nb_rabbits : %d\n", years+1, size_list(l));
         nb_loop++;
     }
     //display_death(l);

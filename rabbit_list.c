@@ -115,7 +115,7 @@ int nb_element(list_rabbit_t list_rabbit)
 //affiche l'age et le sexe du lapin
 void display_rabbit(rabbit_t rabbit)
 {
-    printf("nb month : %d\tsexe : %d\n", rabbit.nb_month, rabbit.sexe);
+    printf("nb month : %d\tsexe : %d\n", rabbit.nb_years, rabbit.sexe);
 }
 
 
@@ -150,5 +150,12 @@ void display_death(list_rabbit_t list_rabbit)
 	}
 }
 
-
-
+int size_list(list_rabbit_t list_rabbit){
+	list_rabbit_t tmp = list_rabbit;
+	int cpt = 0;
+	while(tmp != NULL){
+		cpt++;
+		tmp = tmp->next;
+	}
+	return cpt;
+}

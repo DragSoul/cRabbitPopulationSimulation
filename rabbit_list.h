@@ -9,7 +9,7 @@ typedef enum{false, true}Boolean;
 
 typedef struct{
     sexe_t sexe;
-    int nb_month;
+    int nb_years;
 	Boolean alive;
 }rabbit_t;
 
@@ -32,6 +32,7 @@ int nb_element(list_rabbit_t list_rabbit);
 void display_rabbit(rabbit_t rabbit);
 void display_rabbit_all(list_rabbit_t list_rabbit);
 void display_death(list_rabbit_t list_rabbit);
+int size_list(list_rabbit_t list_rabbit);
 
 
 

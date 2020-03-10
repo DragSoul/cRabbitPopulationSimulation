@@ -7,7 +7,8 @@
 #include "rabbit_list.h"
 #include "mt19937ar.h"
 
-rabbit_t new_rabbit();
+rabbit_t new_rabbit(int years);
+rabbit_t new_rabbit2(int years, sexe_t sexe);
 sexe_t is_male(rabbit_t rabbit);
 sexe_t is_female(rabbit_t rabbit);
 Boolean give_birth(rabbit_t rabbit);
