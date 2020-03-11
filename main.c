@@ -15,7 +15,7 @@ int main()
 {
     //question1();
 
-    realistic_simulation();
+    realistic_simulation2();
 
     return 0;
 }
