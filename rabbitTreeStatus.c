@@ -39,7 +39,7 @@ int surviveRabbitYear(int old, configSimu_t config){
     }else{
         percent = config.rabbitSurvRate;
         if(old > config.ageDisminish){
-            percent += (old - config.ageDisminish) * config.rateDisminish;
+            percent -= (old - config.ageDisminish) * config.rateDisminish;
         } 
     }
     if(genrand_real2() > percent){ 
@@ -119,11 +119,11 @@ void realistic_simulation_TS(configSimu_t config){
                     rabbits[sex][old]--;
                     if(surv){
                         if(sex == 0){
-                        babys += makeBabys(old, cumulProbaLitter, cumulProbaBabys, lenCumulProbaLitter, lenCumulProbaBabys, config.minLitterPerYear, config.minBabyPerLitter);
+                            babys += makeBabys(old, cumulProbaLitter, cumulProbaBabys, lenCumulProbaLitter, lenCumulProbaBabys, config.minLitterPerYear, config.minBabyPerLitter);
                         }
-                        
-                    
-                        rabbits[sex][old + 1]++;
+                        if(old < config.maxRabbitYear){
+                            rabbits[sex][old + 1]++;
+                        }
                     }
                 }
             }
