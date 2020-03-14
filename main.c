@@ -36,6 +36,7 @@ int main()
     config.probaLittersYear = tabProbaLitter;
     config.rabbitSurvRate = 0.6;
     config.rateDisminish = 0.1;
+    config.initPredator = 1;
 
     for(int i = 0; i < nbExp; i++)
     {

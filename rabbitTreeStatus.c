@@ -63,6 +63,7 @@ unsigned long makeBabys(int old, double cumulProbaLitter[], double cumulProbaBab
     return babys;
 }
 
+
 //fonction pour calculer la somme des lapins
 unsigned long CalcSumYears(unsigned long ** tab, int maxOld){
     unsigned long sum = 0;
@@ -76,18 +77,33 @@ unsigned long CalcSumYears(unsigned long ** tab, int maxOld){
 
 //fonction pour ajouter les lapins a la liste des lapins 
 void addBabys(unsigned long babys, unsigned long ** rabbit){
-    if(babys % 2 == 1){
-        rabbit[genrand_real2()> 0.5][0]++;
+    for(int i = 0; i < babys; i++){
+        rabbit[(int)round(genrand_real2())][0]++;;
     }
-    rabbit[0][0] += babys / 2;
-    rabbit[1][0] += babys / 2;
 }
+
+void free_double_tab(unsigned long **tab, int n){
+    for(int i = 0; i < n; i++){
+        free(tab[i]);
+    }
+    free(tab);
+}
+
+
+unsigned long sum_array(unsigned long array[], int n){
+    unsigned long sum = 0;
+    for(int i = 0; i < n; i++){
+        sum += array[i];
+    }
+    return sum;
+}
+
 
 void realistic_simulation_TS(configSimu_t config){
     unsigned long ** rabbits = NULL;
     unsigned long ** rabbitsTmp = NULL;
     
-    int surv;
+    int surv = 1;
     unsigned long babys;
     unsigned long sum;
     
@@ -115,7 +131,9 @@ void realistic_simulation_TS(configSimu_t config){
         for(int sex = 0; sex < 2; sex++){
             for(int old = 0; old < config.maxRabbitYear; old++){
                 for(int rab = 0; rab < rabbitsTmp[sex][old]; rab++){
-                    surv = surviveRabbitYear(old, config);
+                    if(config.initPredator < year){
+                        surv = surviveRabbitYear(old, config);
+                    }
                     rabbits[sex][old]--;
                     if(surv){
                         if(sex == 0){
@@ -130,7 +148,11 @@ void realistic_simulation_TS(configSimu_t config){
         }
         sum = CalcSumYears(rabbits, config.maxRabbitYear);
         addBabys(babys, rabbits);
-        printf("%d : %lu + %lu\n", year, sum, babys);
+        printf("%d : nbAdulte : %lu nbEnfant : %lu nbMale : %lu nbFemele : %lu\n", year, sum, babys, sum_array(rabbits[0], config.maxRabbitYear), sum_array(rabbits[1], config.maxRabbitYear));
     }
-    
+
+    free_double_tab(rabbits, 2);
+    free_double_tab(rabbitsTmp, 2);;
+    free(cumulProbaBabys);
+    free(cumulProbaLitter);
 }
