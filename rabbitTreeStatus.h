@@ -23,6 +23,6 @@ typedef struct {
     int initPredator; // month when predator begin their job
 }configSimu_t;
 
-void realistic_simulation_TS(configSimu_t config);
+unsigned long realistic_simulation_TS(configSimu_t config);
 
 #endif

@@ -99,7 +99,7 @@ unsigned long sum_array(unsigned long array[], int n){
 }
 
 
-void realistic_simulation_TS(configSimu_t config){
+unsigned long realistic_simulation_TS(configSimu_t config){
     unsigned long ** rabbits = NULL;
     unsigned long ** rabbitsTmp = NULL;
     
@@ -151,8 +151,19 @@ void realistic_simulation_TS(configSimu_t config){
         printf("%d : nbAdulte : %lu nbEnfant : %lu nbMale : %lu nbFemele : %lu\n", year, sum, babys, sum_array(rabbits[0], config.maxRabbitYear), sum_array(rabbits[1], config.maxRabbitYear));
     }
 
+    unsigned long total = 0;
+    for(int i = 0; i < 2; i++){
+        for (int j = 0; j < config.maxRabbitYear; j++)
+        {
+            total += rabbits[i][j];
+        }
+    }
+
     free_double_tab(rabbits, 2);
     free_double_tab(rabbitsTmp, 2);;
     free(cumulProbaBabys);
     free(cumulProbaLitter);
+
+    
+    return total;
 }
