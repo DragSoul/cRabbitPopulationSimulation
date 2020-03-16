@@ -5,10 +5,10 @@
 
 void question1()
 {
-    int n1 = fibo_recurente(15);
-    int n2 = fibo_recursif(15);
-    int n3 = fibo_explicite(15);
-    printf("%d\t%d\t%d\n", n1, n2, n3);
+    unsigned long n1 = fibo_recurence(11);
+    unsigned long n2 = fibo_recursif(11);
+    unsigned long n3 = fibo_explicite(11);
+    printf("formule de récurrence : %lu\nformule récursive : %lu\nformule explicite : %lu\n", n1, n2, n3);
 }
 
 
@@ -63,10 +63,10 @@ int main()
     unsigned long init[4]={0x123, 0x234, 0x345, 0x456}, length=4;
     init_by_array(init, length);
 
-    //question1();
+    question1();
     //realistic_simulation2();
 
-    int nbExp = 10;
+    /*int nbExp = 10;
     unsigned long tab_exp[10] = {0};
     double tabProbaLitter[5] = {0.1, 0.2, 0.4, 0.2, 0.1};
     double tabProbaBabys[4] = {0.25,0.25,0.25,0.25};
@@ -90,6 +90,6 @@ int main()
         tab_exp[i] = realistic_simulation_TS(config);
         printf("\n");
     }
-    intervalle_de_confiance(tab_exp, nbExp);
+    intervalle_de_confiance(tab_exp, nbExp);*/
     return 0;
 }

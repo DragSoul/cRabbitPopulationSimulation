@@ -2,7 +2,7 @@
 
 
 //suite de fibonacci implémentée récursivement
-int fibo_recursif(int n)
+unsigned long fibo_recursif(int n)
 {
     if(n < 2)
     {
@@ -13,7 +13,7 @@ int fibo_recursif(int n)
 
 
 //suite de fibonacci implémentée sous sa forme récurrente
-int fibo_recurente(int n)
+unsigned long fibo_recurence(int n)
 {
     int Un, Un_1 = 1, Un_2 = 0;
     if(n == 0) return Un_2;
@@ -29,7 +29,7 @@ int fibo_recurente(int n)
 
 
 //suite de fibonacci implémentée sous sa forme explicite
-int fibo_explicite(int n)
+unsigned long fibo_explicite(int n)
 {
     double phi, phi_prime;
     phi = (1+sqrt(5))/2;
