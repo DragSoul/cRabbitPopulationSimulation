@@ -1,7 +1,25 @@
+/**
+ * \file rabbit.c
+ * \author Aurelien DOUARD et Anthony BERTRAND
+ * \brief Programmes pour gérer les lapins ainsi que la simulation de
+ * l'évolution de la population de lapin dans le temps
+ * \version 0.1 
+ * \date 16 mars 2020
+ **/
+
 #include "rabbit.h"
 
 int nb_loop = 1;
-// creer automatiquement un lapin male ou femele
+
+/* --------------------------------------------------------------------------*/
+/*  rabbit_t new_rabbit(int years)                                           */
+/** créer un lapin de sexe aléatoire
+ *
+ * @param years age du lapin
+ * 
+ * @return un lapin
+ **/
+/*---------------------------------------------------------------------------*/
 rabbit_t new_rabbit(int years)
 {
     rabbit_t rabbit;
@@ -11,6 +29,17 @@ rabbit_t new_rabbit(int years)
     return rabbit;
 }
 
+
+/* --------------------------------------------------------------------------*/
+/*  rabbit_t new_rabbit2(int years, sexe_t sexe)                             */
+/** créer un lapin de sexe défini
+ *
+ * @param years age du lapin
+ * @param sexe sexe du lapin
+ * 
+ * @return un lapin
+ **/
+/*---------------------------------------------------------------------------*/
 rabbit_t new_rabbit2(int years, sexe_t sexe)
 {
     rabbit_t rabbit;
@@ -20,17 +49,43 @@ rabbit_t new_rabbit2(int years, sexe_t sexe)
     return rabbit;
 }
 
+/* --------------------------------------------------------------------------*/
+/*  sexe_t is_male(rabbit_t rabbit)                                          */
+/** permet de savoir si le lapin est un mâle
+ *
+ * @param rabbit un lapin
+ * 
+ * @return true si le lapin est un mâle
+ **/
+/*---------------------------------------------------------------------------*/
 sexe_t is_male(rabbit_t rabbit)
 {
     return rabbit.sexe == male;
 }
 
+/* --------------------------------------------------------------------------*/
+/*  sexe_t is_female(rabbit_t rabbit)                                        */
+/** permet de savoir si le lapin est une femelle
+ *
+ * @param rabbit un lapin
+ * 
+ * @return true si le lapin est une femelle
+ **/
+/*---------------------------------------------------------------------------*/
 sexe_t is_female(rabbit_t rabbit)
 {
     return rabbit.sexe == female;
 }
 
-// renvoie true si la lapine donne naissance (pas encore randomiser)
+/* --------------------------------------------------------------------------*/
+/*  Boolean give_birth(rabbit_t rabbit)                                      */
+/** permet de savoir si le lapin donne naissance à une portée
+ *
+ * @param rabbit un lapin
+ * 
+ * @return true si le lapin donne naissance
+ **/
+/*---------------------------------------------------------------------------*/
 Boolean give_birth(rabbit_t rabbit)
 {
     if(is_female(rabbit)) {
@@ -41,14 +96,16 @@ Boolean give_birth(rabbit_t rabbit)
     return false;
 }
 
-// TODO décider dès la naissance si le lapin survit à son enfance
-// ou non faire une proba cumulée sur les 5 mois de son enfance.
-// Quand le lapin passe à l'age adulte/vieux, re-decider de
-// sa survie + proba cumulée (à rajouter dans la structure)
-// pb : peu de lapin mourront vers 6 mois car la proba
-// cumulée sera faible au début...
 
-// renvoie true si le lapin survit
+/* --------------------------------------------------------------------------*/
+/*  Boolean survive(rabbit_t rabbit)                                         */
+/** permet de savoir si le lapin survit jusqu'à l'année suivante
+ *
+ * @param rabbit un lapin
+ * 
+ * @return true si le lapin survit
+ **/
+/*---------------------------------------------------------------------------*/
 Boolean survive(rabbit_t rabbit)
 {
     double percent;
@@ -63,18 +120,35 @@ Boolean survive(rabbit_t rabbit)
         }
     }
     if(genrand_real2() > percent) {
-        return 0;
+        return false;
     }
-    return 1;
+    return true;
 }
 
+
+/* --------------------------------------------------------------------------*/
+/*  Boolean is_alive(rabbit_t rabbit)                                        */
+/** retourne la variable bouléene alive du lapin
+ *
+ * @param rabbit un lapin
+ * 
+ * @return true si le lapin est en vie
+ **/
+/*---------------------------------------------------------------------------*/
 Boolean is_alive(rabbit_t rabbit)
 {
     return rabbit.alive;
 }
 
-// renvoie la liste avec les naissances (pas encore essayer
-// car doit d'abord enlever les lapins morts)
+/* --------------------------------------------------------------------------*/
+/*  list_rabbit_t give_birth_all(list_rabbit_t list_rabbit)                  */
+/** ajoute tout les nouveaux nés dans la liste de lapins
+ *
+ * @param list_rabbit une liste de lapin
+ * 
+ * @return la nouvelle liste de lapins après insertion des nouveaux nés
+ **/
+/*---------------------------------------------------------------------------*/
 list_rabbit_t give_birth_all(list_rabbit_t list_rabbit)
 {
     int           nb_liters;
@@ -98,7 +172,16 @@ list_rabbit_t give_birth_all(list_rabbit_t list_rabbit)
     return list_rabbit;
 }
 
-// renvoie la liste avec les changements au niveau du booleen 'alive'
+
+/* --------------------------------------------------------------------------*/
+/*  list_rabbit_t survive_all(list_rabbit_t list_rabbit)                     */
+/** change la valeur du bouléen alive pour tous les lapins de la liste
+ *
+ * @param list_rabbit une liste de lapin
+ * 
+ * @return la nouvelle liste de lapins après modification du bouléen
+ **/
+/*---------------------------------------------------------------------------*/
 list_rabbit_t survive_all(list_rabbit_t list_rabbit)
 {
     list_rabbit_t ltmp = list_rabbit;
@@ -110,6 +193,12 @@ list_rabbit_t survive_all(list_rabbit_t list_rabbit)
     return list_rabbit;
 }
 
+/* --------------------------------------------------------------------------*/
+/*  void realistic_simulation()                                              */
+/** fonction pour réaliser une simulation d'évolution de population de lapin 
+ sur plusieurs années
+ **/
+/*---------------------------------------------------------------------------*/
 void realistic_simulation()
 {
     // initialisation de la liste avec quelques lapins
@@ -121,18 +210,11 @@ void realistic_simulation()
     }
 
     for(int years = 0; years < 15; years++) {
-        // vérifier qu'il reste au moins un male...
         l = give_birth_all(l);
-        // printf("after  birth %d : \n", nb_loop);
-        // display_rabbit_all(l);
-
         l = survive_all(l);
-
         l = delete_dead(l);
-        // printf("after  death %d : \n", nb_loop);
-        // display_rabbit_all(l);
+
         printf("nb_years : %d, nb_rabbits : %d\n", years + 1, size_list(l));
         nb_loop++;
     }
-    // display_death(l);
 }
