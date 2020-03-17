@@ -2,7 +2,7 @@
  * \file rabbitTreeStatus.c
  * \author Aurelien DOUARD et Anthony BERTRAND
  * \brief Programmes pour réaliser une simulation stocastique de l'évolution
- d'une population de lapin avec des arbres d'états
+ d'une population de lapins avec des arbres d'états
  * \version 0.1
  * \date 16 mars 2020
  **/
@@ -11,7 +11,7 @@
 
 /* --------------------------------------------------------------------------*/
 /*  void checkMallocNull(void * tab)                                         */
-/** vérifi si un malloc c'est bien passé
+/** vérifie si un malloc c'est bien passé
  *
  * @param  tab tableau
  * @return void
@@ -27,7 +27,7 @@ void checkMallocNull(void * tab)
 
 /* --------------------------------------------------------------------------*/
 /*  unsigned long ** createRabbitTabZero(int maxRabbitYear)                  */
-/** crée un tableau pour stocker des états de lapin, initialisé avec des zero
+/** crée un tableau pour stocker des états de lapin, initialisé avec des zeros
  *
  * @param  maxRabbitYear l'age maximum d'un lapin
  * @return un tableau de tableaux de unsigned long
@@ -69,7 +69,7 @@ void copyRabitTab(unsigned long ** src, unsigned long ** dest,
 
 /* --------------------------------------------------------------------------*/
 /*  int surviveRabbitYear(int old, configSimu_t config)                      */
-/** fonction qui dit si un lapin survie ou non (renvoit 1 ou 0)
+/** fonction qui dit si un lapin survit ou non (renvoit 1 ou 0)
  *
  * @param  old age du lapin
  * @param  config configuration de la simulation
@@ -107,8 +107,8 @@ année
  portée
  * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de
  bébés par portée
- * @param  lenCumulProbaLitter longeur du tableau de proba de portée
- * @param  lenCumulProbaBabys longeur du tableau de proba de bébés
+ * @param  lenCumulProbaLitter longueur du tableau de proba de portées
+ * @param  lenCumulProbaBabys longueur du tableau de proba de bébés
  * @param  minLitter nombre minimum de portées
  * @param  minBaby nombre minimum de bébés
  * @return 1 ou 0
@@ -124,7 +124,7 @@ unsigned long makeBabys(int old, double cumulProbaLitter[],
                                           lenCumulProbaLitter);
 
     if(old < 0) {
-        litter = 0; //"Sexual maturity is reachedbetween 5 to 8 months after the
+        litter = 0; //"Sexual maturity is reached between 5 to 8 months after the
                     // birth of baby rabbits, but you can simplify and retain an
                     // annual time step for the simulation"
     }
@@ -157,9 +157,9 @@ unsigned long CalcSumYears(unsigned long ** tab, int maxOld)
 
 /* --------------------------------------------------------------------------*/
 /*  void addBabys(unsigned long babys, unsigned long ** rabbit)              */
-/** fonction pour ajouter les lapins a la liste des lapins
+/** fonction pour ajouter les lapins à la liste des lapins
  *
- * @param  babys nombre de bébés a ajouter
+ * @param  babys nombre de bébés à ajouter
  * @param  rabbit tableaux d'états de lapins
  * @return void
  **/
@@ -191,7 +191,7 @@ void free_double_tab(unsigned long ** tab, int n)
 
 /* --------------------------------------------------------------------------*/
 /*  unsigned long sum_array(unsigned long array[], int n)                    */
-/** fonction pour faire la somme d'un tableaux de unsigned long
+/** fonction pour faire la somme d'un tableau de unsigned long
  *
  * @param  array tableau
  * @param  n nombre d'éléments dans le tableau
@@ -221,10 +221,10 @@ rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
  * @param  rabbitsTmp tableau d'états de lapins temporaire
  * @param  year année de l'iteration
  * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de
- portée
+ portées
  * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de
  bébés par portée
- * @param  lenCumulProbaLitter longeur du tableau de proba de portée
+ * @param  lenCumulProbaLitter longeur du tableau de proba de portées
  * @param  lenCumulProbaBabys longeur du tableau de proba de bébés
  * @return nombre de bébés à ajouter
  **/

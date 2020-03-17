@@ -121,7 +121,7 @@ list_rabbit_t delete_dead(list_rabbit_t list_rabbit);
 /*  void display_rabbit(rabbit_t rabbit)                                     */
 /** affiche les informations d'un lapin
  *
- * @param rabbit un lapins
+ * @param rabbit un lapin
  *
  **/
 /*---------------------------------------------------------------------------*/

@@ -1,7 +1,7 @@
 /**
  * \file reverseDistLow.c
  * \author Aurelien DOUARD
- * \brief Programmes pour générer des nombre pseudo-aléatoire qui suivent une
+ * \brief Programmes pour générer des nombres pseudo-aléatoire qui suivent une
  *probabilité donné
  * \version 0.1
  * \date 16 février 2020

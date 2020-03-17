@@ -96,7 +96,7 @@ void intervalle_de_confiance(unsigned long tab[], int nbExp)
 
 /* --------------------------------------------------------------------------*/
 /*  void question2_list()                                                    */
-/** fonction pour réaliser une simulation d'évolution de population de lapin
+/** fonction pour réaliser une simulation d'évolution de population de lapins
 avec une structure list
  *
  * @return void
@@ -109,7 +109,7 @@ void question2_list()
 
 /* --------------------------------------------------------------------------*/
 /*  void question2_TS()                                                      */
-/** fonction pour réaliser une simulation d'évolution de population de lapin
+/** fonction pour réaliser une simulation d'évolution de population de lapins
 avec une structure d'arbre d'états
  *
  * @return void
