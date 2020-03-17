@@ -138,8 +138,8 @@ void question2_TS()
     config.initPredator         = 1;
 
     for(int i = 0; i < nbExp; i++) {
+        printf("exp %d\n", i);
         tab_exp[i] = realistic_simulation_TS(config);
-        printf("\n");
     }
     intervalle_de_confiance(tab_exp, nbExp);
 }
