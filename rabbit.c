@@ -51,33 +51,21 @@ Boolean give_birth(rabbit_t rabbit)
 // renvoie true si le lapin survit
 Boolean survive(rabbit_t rabbit)
 {
-    double random = genrand_real2();
-    // printf("nb_loop = %d\t%f\t", nb_loop, random);
+    double percent;
+
     if(rabbit.nb_years < 1) {
-        // printf("%d\n", random < 0.35);
-        return random < 0.35;
+        percent = 0.35;
     }
-    if(rabbit.nb_years < 11) {
-        // printf("%d\n", random < 0.5);
-        return random < 0.5;
+    else {
+        percent = 0.5;
+        if(rabbit.nb_years > 10) {
+            percent -= (rabbit.nb_years - 10) * 0.1;
+        }
     }
-    if(rabbit.nb_years < 12) {
-        // printf("%d\n", random < 0.4);
-        return random < 0.4;
+    if(genrand_real2() > percent) {
+        return 0;
     }
-    if(rabbit.nb_years < 13) {
-        // printf("%d\n", random < 0.3);
-        return random < 0.3;
-    }
-    if(rabbit.nb_years < 14) {
-        // printf("%d\n", random < 0.2);
-        return random < 0.2;
-    }
-    if(rabbit.nb_years < 15) {
-        // printf("%d\n", random < 0.1);
-        return random < 0.1;
-    }
-    return false;
+    return 1;
 }
 
 Boolean is_alive(rabbit_t rabbit)
@@ -124,9 +112,6 @@ list_rabbit_t survive_all(list_rabbit_t list_rabbit)
 
 void realistic_simulation()
 {
-    unsigned long init[4] = { 0x123, 0x234, 0x345, 0x456 }, length = 4;
-    init_by_array(init, length);
-
     // initialisation de la liste avec quelques lapins
     int           nb_rabbit = 1;
     list_rabbit_t l         = new_list();
@@ -149,126 +134,5 @@ void realistic_simulation()
         printf("nb_years : %d, nb_rabbits : %d\n", years + 1, size_list(l));
         nb_loop++;
     }
-    // display_death(l);
-}
-
-/*************************************************************************************************/
-
-// donne naissance version tableau
-void give_birth_all2(int tab[], int n)
-{
-    int random_litters, random_birth;
-    for(int female_tab = 3; female_tab < n; female_tab += 2) {
-        for(int female_case = 0; female_case < tab[female_tab]; female_case++) {
-            random_litters = (int)round(uniform(5, 7));
-            for(int nb_litter = 0; nb_litter < random_litters; nb_litter++) {
-                random_birth = (int)round(uniform(3, 6));
-                for(int nb_birth = 0; nb_birth < random_birth; nb_birth++) {
-                    tab[(int)round(genrand_real2())]++;
-                }
-            }
-        }
-    }
-}
-
-// version degueulasse
-void survive_all2(int tab[], int n)
-{
-
-    for(int i = 30; i >= 29; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            tab[i]--;
-        }
-    }
-
-    for(int i = 28; i >= 27; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            if(genrand_real2() < 0.1) {
-                tab[i + 2]++;
-                tab[i]--;
-            }
-        }
-    }
-
-    for(int i = 26; i >= 25; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            if(genrand_real2() < 0.2) {
-                tab[i + 2]++;
-                tab[i]--;
-            }
-        }
-    }
-
-    for(int i = 24; i >= 23; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            if(genrand_real2() < 0.3) {
-                tab[i + 2]++;
-                tab[i]--;
-            }
-        }
-    }
-
-    for(int i = 22; i >= 21; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            if(genrand_real2() < 0.4) {
-                tab[i + 2]++;
-                tab[i]--;
-            }
-        }
-    }
-
-    // adulte
-    for(int i = 20; i >= 2; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            if(genrand_real2() < 0.5) {
-                tab[i + 2]++;
-                tab[i]--;
-            }
-        }
-    }
-
-    // bébé
-    for(int i = 1; i >= 0; i--) {
-        for(int rabbit = 0; rabbit < tab[i]; rabbit++) {
-            if(genrand_real2() < 0.35) {
-                tab[i + 2]++;
-                tab[i]--;
-            }
-        }
-    }
-}
-
-void display_tab(int tab[], int n)
-{
-    for(int i = 0; i < n; i++) {
-        printf("tab[%d] = %d\n", i, tab[i]);
-    }
-}
-
-void realistic_simulation2()
-{
-    unsigned long init[4] = { 0x123, 0x234, 0x345, 0x456 }, length = 4;
-    init_by_array(init, length);
-
-    // initialisation de la liste avec quelques lapins
-    int nb_rabbit = 1;
-    int tab[30] = { 0 }, n = 30; // tab[0] = male age 0  tab[1] = femele age 0
-    for(int i = 0; i < nb_rabbit; i++) {
-        tab[2]++;
-        tab[3]++;
-    }
-
-    for(int years = 0; years < 5; years++) {
-        give_birth_all2(tab, n);
-        // display_tab(tab, n);
-        survive_all2(tab, n);
-
-        /*l = delete_dead(l);
-        //printf("after  death %d : \n", nb_loop);
-        //display_rabbit_all(l);
-        printf("nb_years : %d, nb_rabbits : %d\n", years+1, size_list(l));
-        nb_loop++;*/
-    }
-    display_tab(tab, n);
     // display_death(l);
 }

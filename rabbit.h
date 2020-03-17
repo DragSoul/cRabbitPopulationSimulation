@@ -18,13 +18,6 @@ list_rabbit_t survive_all(list_rabbit_t list_rabbit);
 
 void realistic_simulation();
 
-/*****************************/
 
-void give_birth_all2(int tab[], int n);
-void survive_all2(int tab[], int n);
-void display_tab(int tab[], int n);
-void realistic_simulation2();
-
-/*****************************/
 
 #endif
