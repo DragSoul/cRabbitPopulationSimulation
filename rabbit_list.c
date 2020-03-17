@@ -1,12 +1,35 @@
+/**
+ * \file rabbit_list.c
+ * \author Aurelien DOUARD et Anthony BERTRAND
+ * \brief Programmes pour stocker des lapins dans une liste
+ * \version 0.1 
+ * \date 16 mars 2020
+ **/
+
 #include "rabbit_list.h"
 
-// créer une nouvelle liste
+
+/* --------------------------------------------------------------------------*/
+/*  list_rabbit_t new_list(void)                                             */
+/** créer une liste vide
+ *
+ * @return NULL
+ **/
+/*---------------------------------------------------------------------------*/
 list_rabbit_t new_list(void)
 {
     return NULL;
 }
 
-// renvoie le premier lapin de la liste
+
+/* --------------------------------------------------------------------------*/
+/*  rabbit_t head(list_rabbit_t list_rabbit)                                 */
+/** permet d'obtenir le premier élement de la liste
+ *
+ * @param  liste_rabbit liste de lapins
+ * @return le premier lapin de la liste
+ **/
+/*---------------------------------------------------------------------------*/
 rabbit_t head(list_rabbit_t list_rabbit)
 {
     if(list_rabbit == NULL) {
@@ -16,7 +39,14 @@ rabbit_t head(list_rabbit_t list_rabbit)
     return list_rabbit->rabbit;
 }
 
-// renvoie true si la liste est vide
+/* --------------------------------------------------------------------------*/
+/*  Boolean empty(list_rabbit_t list_rabbit)                                 */
+/** permet de savoir si la liste est vide
+ *
+ * @param  liste_rabbit liste de lapins
+ * @return true si la liste est vide, false sinon
+ **/
+/*---------------------------------------------------------------------------*/
 Boolean empty(list_rabbit_t list_rabbit)
 {
     if(list_rabbit == NULL)
@@ -24,7 +54,16 @@ Boolean empty(list_rabbit_t list_rabbit)
     return false;
 }
 
-// ajoute un lapin en debut de liste
+/* --------------------------------------------------------------------------*/
+/*  list_rabbit_t add_head(list_rabbit_t list_rabbit, rabbit_t rabbit)       */
+/** ajoute un lapin dans la liste
+ *
+ * @param  liste_rabbit liste de lapins
+ * @param  rabbit lapin à ajouter à la liste
+ * 
+ * @return la liste avec le lapin ajouté
+ **/
+/*---------------------------------------------------------------------------*/
 list_rabbit_t add_head(list_rabbit_t list_rabbit, rabbit_t rabbit)
 {
     link_t * link;
@@ -38,7 +77,15 @@ list_rabbit_t add_head(list_rabbit_t list_rabbit, rabbit_t rabbit)
     return link;
 }
 
-// supprime le premier lapin de la liste
+/* --------------------------------------------------------------------------*/
+/*  list_rabbit_t delete_head(list_rabbit_t list_rabbit)                     */
+/** supprime le premier lapin de la liste
+ *
+ * @param  liste_rabbit liste de lapins
+ * 
+ * @return la liste avec le lapin supprimé
+ **/
+/*---------------------------------------------------------------------------*/
 list_rabbit_t delete_head(list_rabbit_t list_rabbit)
 {
     link_t * link;
@@ -52,6 +99,16 @@ list_rabbit_t delete_head(list_rabbit_t list_rabbit)
     return list_rabbit;
 }
 
+
+/* --------------------------------------------------------------------------*/
+/*  list_rabbit_t delete_dead(list_rabbit_t list_rabbit)                     */
+/** supprime tout les lapins morts de la liste
+ *
+ * @param  liste_rabbit liste de lapins
+ * 
+ * @return la liste avec les lapins morts supprimés
+ **/
+/*---------------------------------------------------------------------------*/
 list_rabbit_t delete_dead(list_rabbit_t list_rabbit)
 {
     list_rabbit_t tmp, previous;
@@ -74,7 +131,7 @@ list_rabbit_t delete_dead(list_rabbit_t list_rabbit)
     else
         tmp = NULL;
 
-    while(!empty(tmp)) // On Mouline est on supprime si on trouve l'element
+    while(!empty(tmp)) // On boucle est on supprime si on trouve l'element
     {
         // supprime les morts à la suite les uns des autres
         while(!empty(tmp) && !tmp->rabbit.alive) {
@@ -90,24 +147,28 @@ list_rabbit_t delete_dead(list_rabbit_t list_rabbit)
     return list_rabbit;
 }
 
-// affiche le nombre d'elements d'une liste
-int nb_element(list_rabbit_t list_rabbit)
-{
-    int cpt = 0;
-    while(list_rabbit != NULL) {
-        cpt         = cpt + 1;
-        list_rabbit = list_rabbit->next;
-    }
-    return cpt;
-}
 
-// affiche l'age et le sexe du lapin
+/* --------------------------------------------------------------------------*/
+/*  void display_rabbit(rabbit_t rabbit)                                     */
+/** affiche les informations d'un lapin
+ *
+ * @param rabbit un lapins
+ * 
+ **/
+/*---------------------------------------------------------------------------*/
 void display_rabbit(rabbit_t rabbit)
 {
     printf("nb month : %d\tsexe : %d\n", rabbit.nb_years, rabbit.sexe);
 }
 
-// affiche l'age et le sexe de chaque lapin de la liste
+/* --------------------------------------------------------------------------*/
+/*  void display_rabbit_all(list_rabbit_t list_rabbit)                       */
+/** affiche les informations de tous les lapins de la liste
+ *
+ * @param list_rabbit liste de lapins
+ * 
+ **/
+/*---------------------------------------------------------------------------*/
 void display_rabbit_all(list_rabbit_t list_rabbit)
 {
     while(!empty(list_rabbit)) {
@@ -116,7 +177,14 @@ void display_rabbit_all(list_rabbit_t list_rabbit)
     }
 }
 
-// affiche la liste des lapins avec le booleen 'alive'
+/* --------------------------------------------------------------------------*/
+/*  void display_death(list_rabbit_t list_rabbit)                            */
+/** affiche la valeur de la variable bouléene alive (pour debug)
+ *
+ * @param list_rabbit liste de lapins
+ * 
+ **/
+/*---------------------------------------------------------------------------*/
 void display_death(list_rabbit_t list_rabbit)
 {
     int i = 1;
@@ -133,6 +201,16 @@ void display_death(list_rabbit_t list_rabbit)
     }
 }
 
+
+/* --------------------------------------------------------------------------*/
+/*  int size_list(list_rabbit_t list_rabbit)                                 */
+/** compte le nombre d'éléments de la liste
+ *
+ * @param  liste_rabbit liste de lapins
+ * 
+ * @return le nombre d'éléments de la liste
+ **/
+/*---------------------------------------------------------------------------*/
 int size_list(list_rabbit_t list_rabbit)
 {
     list_rabbit_t tmp = list_rabbit;

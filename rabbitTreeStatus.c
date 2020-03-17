@@ -3,7 +3,8 @@
  * \author Aurelien DOUARD et Anthony BERTRAND
  * \brief Programmes pour réaliser une simulation stocastique de l'évolution
  d'une population de lapin avec des arbres d'états
- * \version 0.1 \date 16 mars 2020
+ * \version 0.1 
+ * \date 16 mars 2020
  **/
 
 #include "rabbitTreeStatus.h"
@@ -315,6 +316,12 @@ unsigned long realistic_simulation_TS(configSimu_t config)
             "%d : nbAdulte : %lu nbEnfant : %lu nbMale : %lu nbFemele : %lu\n",
             year, sum, babys, sum_array(rabbits[0], config.maxRabbitYear),
             sum_array(rabbits[1], config.maxRabbitYear));
+
+        /*printf("année %d\n", year);
+        for(int i = 0; i < config.maxRabbitYear; i++){
+            printf("%d ans : %lu\n", i, rabbits[0][i]+rabbits[1][i]);
+        }
+        printf("\n");*/
     }
 
     unsigned long total = 0;

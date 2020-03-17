@@ -1,6 +1,22 @@
+/**
+ * \file fibo.c
+ * \author Aurelien DOUARD et Anthony BERTRAND
+ * \brief Programmes pour calculer les termes de la suite de Fibonacci.
+ * \version 0.1 
+ * \date 16 mars 2020
+ **/
+
 #include "fibo.h"
 
-// suite de fibonacci implémentée récursivement
+/* --------------------------------------------------------------------------*/
+/*  unsigned long fibo_recursif(int n)                                       */
+/** fonction pour obtenir le n-ième terme de la suite de Fibonacci 
+ * implémentée récursivement
+ * 
+ * @param  n indice du terme voulu
+ * @return le terme à la n-ième place dans la suite
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long fibo_recursif(int n)
 {
     if(n < 2) {
@@ -9,7 +25,15 @@ unsigned long fibo_recursif(int n)
     return fibo_recursif(n - 1) + fibo_recursif(n - 2);
 }
 
-// suite de fibonacci implémentée sous sa forme récurrente
+/* --------------------------------------------------------------------------*/
+/*  unsigned long fibo_recurence(int n)                                      */
+/** fonction pour obtenir le n-ième terme de la suite de Fibonacci 
+ * implémentée à l'aide de la formule de récurrence
+ * 
+ * @param  n indice du terme voulu
+ * @return le terme à la n-ième place dans la suite
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long fibo_recurence(int n)
 {
     int Un, Un_1 = 1, Un_2 = 0;
@@ -25,7 +49,15 @@ unsigned long fibo_recurence(int n)
     return Un;
 }
 
-// suite de fibonacci implémentée sous sa forme explicite
+/* --------------------------------------------------------------------------*/
+/*  unsigned long fibo_explicite(int n)                                      */
+/** fonction pour obtenir le n-ième terme de la suite de Fibonacci 
+ * implémentée à l'aide de la formule explicite
+ * 
+ * @param  n indice du terme voulu
+ * @return le terme à la n-ième place dans la suite
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long fibo_explicite(int n)
 {
     double phi, phi_prime;
