@@ -1,0 +1,120 @@
+\hypertarget{reverse_dist_low_8c}{}\doxysection{Référence du fichier reverse\+Dist\+Low.\+c}
+\label{reverse_dist_low_8c}\index{reverseDistLow.c@{reverseDistLow.c}}
+
+
+Programmes pour générer des nombre pseudo-\/aléatoire qui suivent une probabilité donné  
+
+
+{\ttfamily \#include \char`\"{}reverse\+Dist\+Low.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+double $\ast$ \mbox{\hyperlink{reverse_dist_low_8c_ac25813b07026f5aa89cccb736fdc62a8}{proba\+Calc}} (int tab\mbox{[}$\,$\mbox{]}, int len)
+\begin{DoxyCompactList}\small\item\em Fonction qui calcule la probabilité de chaque élément du tableau. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{reverse_dist_low_8c_a4261db197ad5e3d8a5472b84e79bbb81}\label{reverse_dist_low_8c_a4261db197ad5e3d8a5472b84e79bbb81}} 
+void {\bfseries disc\+Dist} (double rand, int tab\mbox{[}$\,$\mbox{]}, double cumul\+Proba\mbox{[}$\,$\mbox{]}, int nb\+Class)
+\item 
+int \mbox{\hyperlink{reverse_dist_low_8c_a53adca444297ca1fbb818d7845700f3a}{gen\+Rand\+\_\+disc\+Dist}} (double rand, double cumul\+Proba\mbox{[}$\,$\mbox{]}, int nb\+Class)
+\begin{DoxyCompactList}\small\item\em Fonction qui génére un nombre qui suit une probabilité donné à partir d\textquotesingle{}un nombre pseudo-\/aléatoire. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{reverse_dist_low_8c_aadb2c8286d7b9a629b5ecf51c0bec6a3}{disc\+Disp\+Loop}} (double cumul\+Proba\mbox{[}$\,$\mbox{]}, int nb\+Class, int nb\+Exp)
+\begin{DoxyCompactList}\small\item\em Fonction qui générer des nombre qui suivent une probabilité pour x tirage. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{reverse_dist_low_8c_a92e92e7b04d266cb5efe0dcf7ca853ad}{calc\+Cumul\+Proba}} (double tab\+Prob\mbox{[}$\,$\mbox{]}, int len)
+\begin{DoxyCompactList}\small\item\em Fonction qui calcule la probabilité cumulé de chaque élément du tableau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programmes pour générer des nombre pseudo-\/aléatoire qui suivent une probabilité donné 
+
+\begin{DoxyAuthor}{Auteur}
+Aurelien D\+O\+U\+A\+RD 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16 février 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{reverse_dist_low_8c_a92e92e7b04d266cb5efe0dcf7ca853ad}\label{reverse_dist_low_8c_a92e92e7b04d266cb5efe0dcf7ca853ad}} 
+\index{reverseDistLow.c@{reverseDistLow.c}!calcCumulProba@{calcCumulProba}}
+\index{calcCumulProba@{calcCumulProba}!reverseDistLow.c@{reverseDistLow.c}}
+\doxysubsubsection{\texorpdfstring{calcCumulProba()}{calcCumulProba()}}
+{\footnotesize\ttfamily double $\ast$ calc\+Cumul\+Proba (\begin{DoxyParamCaption}\item[{double}]{tab\+Prob\mbox{[}$\,$\mbox{]},  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Fonction qui calcule la probabilité cumulé de chaque élément du tableau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab\+Prob} & tableau remplit avec les probabilité \\
+\hline
+{\em len} & la taile du tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un tableau avec la probabilité cumulé de chaque élément 
+\end{DoxyReturn}
+\mbox{\Hypertarget{reverse_dist_low_8c_aadb2c8286d7b9a629b5ecf51c0bec6a3}\label{reverse_dist_low_8c_aadb2c8286d7b9a629b5ecf51c0bec6a3}} 
+\index{reverseDistLow.c@{reverseDistLow.c}!discDispLoop@{discDispLoop}}
+\index{discDispLoop@{discDispLoop}!reverseDistLow.c@{reverseDistLow.c}}
+\doxysubsubsection{\texorpdfstring{discDispLoop()}{discDispLoop()}}
+{\footnotesize\ttfamily int $\ast$ disc\+Disp\+Loop (\begin{DoxyParamCaption}\item[{double}]{cumul\+Proba\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb\+Class,  }\item[{int}]{nb\+Exp }\end{DoxyParamCaption})}
+
+
+
+Fonction qui générer des nombre qui suivent une probabilité pour x tirage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+Exp} & nombre de tirages \\
+\hline
+{\em nb\+Class} & nombre de classes différentes du dans le tableau \\
+\hline
+{\em cumul\+Proba} & tableau remplit avec la probabilité cumulé pour chaque classes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+tableau remplit avec fréquences 
+\end{DoxyReturn}
+\mbox{\Hypertarget{reverse_dist_low_8c_a53adca444297ca1fbb818d7845700f3a}\label{reverse_dist_low_8c_a53adca444297ca1fbb818d7845700f3a}} 
+\index{reverseDistLow.c@{reverseDistLow.c}!genRand\_discDist@{genRand\_discDist}}
+\index{genRand\_discDist@{genRand\_discDist}!reverseDistLow.c@{reverseDistLow.c}}
+\doxysubsubsection{\texorpdfstring{genRand\_discDist()}{genRand\_discDist()}}
+{\footnotesize\ttfamily int gen\+Rand\+\_\+disc\+Dist (\begin{DoxyParamCaption}\item[{double}]{rand,  }\item[{double}]{cumul\+Proba\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb\+Class }\end{DoxyParamCaption})}
+
+
+
+Fonction qui génére un nombre qui suit une probabilité donné à partir d\textquotesingle{}un nombre pseudo-\/aléatoire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+Class} & nombre de classes différentes du dans le tableau \\
+\hline
+{\em cumul\+Proba} & tableau remplit avec la probabilité cumulé pour chaque classes\\
+\hline
+{\em rand} & nombre pseudo-\/aléatoire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{reverse_dist_low_8c_ac25813b07026f5aa89cccb736fdc62a8}\label{reverse_dist_low_8c_ac25813b07026f5aa89cccb736fdc62a8}} 
+\index{reverseDistLow.c@{reverseDistLow.c}!probaCalc@{probaCalc}}
+\index{probaCalc@{probaCalc}!reverseDistLow.c@{reverseDistLow.c}}
+\doxysubsubsection{\texorpdfstring{probaCalc()}{probaCalc()}}
+{\footnotesize\ttfamily double $\ast$ proba\+Calc (\begin{DoxyParamCaption}\item[{int}]{tab\mbox{[}$\,$\mbox{]},  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Fonction qui calcule la probabilité de chaque élément du tableau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau remplit avec les evenements \\
+\hline
+{\em len} & la taile du tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un tableau avec la probabilité de chaque élément 
+\end{DoxyReturn}

@@ -1,6 +1,21 @@
+/**
+ * \file rabbitTreeStatus.c
+ * \author Aurelien DOUARD et Anthony BERTRAND
+ * \brief Programmes pour réaliser une simulation stocastique de l'évolution
+ d'une population de lapin avec des arbres d'états
+ * \version 0.1 \date 16 mars 2020
+ **/
+
 #include "rabbitTreeStatus.h"
 
-// vérifi si un malloc c'est bien passé
+/* --------------------------------------------------------------------------*/
+/*  void checkMallocNull(void * tab)                                         */
+/** vérifi si un malloc c'est bien passé
+ *
+ * @param  tab tableau
+ * @return void
+ **/
+/*---------------------------------------------------------------------------*/
 void checkMallocNull(void * tab)
 {
     if(tab == NULL) {
@@ -9,7 +24,14 @@ void checkMallocNull(void * tab)
     }
 }
 
-// crée un tableau de lapin avec des zero
+/* --------------------------------------------------------------------------*/
+/*  unsigned long ** createRabbitTabZero(int maxRabbitYear)                  */
+/** crée un tableau pour stocker des états de lapin, initialisé avec des zero
+ *
+ * @param  maxRabbitYear l'age maximum d'un lapin
+ * @return un tableau de tableaux de unsigned long
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long ** createRabbitTabZero(int maxRabbitYear)
 {
     unsigned long ** rabbits = NULL;
@@ -23,7 +45,17 @@ unsigned long ** createRabbitTabZero(int maxRabbitYear)
     return rabbits;
 }
 
-// fonction pour copier des tableaux de lapins
+/* --------------------------------------------------------------------------*/
+/*  void copyRabitTab(unsigned long ** src, unsigned long ** dest,
+                  int maxRabbitYear)                                         */
+/** fonction pour copier des tableaux d'états de lapin
+ *
+ * @param  src tableau source
+ * @param  dest tableau de destination
+ * @param  maxRabbitYear l'age maximum d'un lapin
+ * @return void
+ **/
+/*---------------------------------------------------------------------------*/
 void copyRabitTab(unsigned long ** src, unsigned long ** dest,
                   int maxRabbitYear)
 {
@@ -34,7 +66,16 @@ void copyRabitTab(unsigned long ** src, unsigned long ** dest,
     }
 }
 
-// fonction qui dit si un lapin survie ou non (renvoit 1 ou 0)
+
+/* --------------------------------------------------------------------------*/
+/*  int surviveRabbitYear(int old, configSimu_t config)                      */
+/** fonction qui dit si un lapin survie ou non (renvoit 1 ou 0)
+ *
+ * @param  old age du lapin
+ * @param  config configuration de la simulation
+ * @return 1 ou 0
+ **/
+/*---------------------------------------------------------------------------*/
 int surviveRabbitYear(int old, configSimu_t config)
 {
     double percent;
@@ -54,8 +95,25 @@ int surviveRabbitYear(int old, configSimu_t config)
     return 1;
 }
 
-// fonction pour savoir combien de lapins va faire un lapin donné pendant une
-// année
+/* --------------------------------------------------------------------------*/
+/*  unsigned long makeBabys(int old, double cumulProbaLitter[],
+                        double cumulProbaBabys[], int lenCumulProbaLitter,
+                        int lenCumulProbaBabys, int minLitter, int minBaby)  */
+/** fonction pour savoir combien de lapins va faire un lapin donné pendant une
+année
+ *
+ * @param  old age du lapin
+ * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de 
+ portée
+ * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de 
+ bébés par portée
+ * @param  lenCumulProbaLitter longeur du tableau de proba de portée
+ * @param  lenCumulProbaBabys longeur du tableau de proba de bébés
+ * @param  minLitter nombre minimum de portées
+ * @param  minBaby nombre minimum de bébés
+ * @return 1 ou 0
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long makeBabys(int old, double cumulProbaLitter[],
                         double cumulProbaBabys[], int lenCumulProbaLitter,
                         int lenCumulProbaBabys, int minLitter, int minBaby)
@@ -77,7 +135,15 @@ unsigned long makeBabys(int old, double cumulProbaLitter[],
     return babys;
 }
 
-// fonction pour calculer la somme des lapins
+/* --------------------------------------------------------------------------*/
+/*  unsigned long CalcSumYears(unsigned long ** tab, int maxOld)             */
+/** fonction pour calculer la somme des lapins
+ *
+ * @param  tab tableau
+ * @param  maxOld age max des lapins
+ * @return la somme des lapins
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long CalcSumYears(unsigned long ** tab, int maxOld)
 {
     unsigned long sum = 0;
@@ -89,7 +155,15 @@ unsigned long CalcSumYears(unsigned long ** tab, int maxOld)
     return sum;
 }
 
-// fonction pour ajouter les lapins a la liste des lapins
+/* --------------------------------------------------------------------------*/
+/*  void addBabys(unsigned long babys, unsigned long ** rabbit)              */
+/** fonction pour ajouter les lapins a la liste des lapins
+ *
+ * @param  babys nombre de bébés a ajouter
+ * @param  rabbit tableaux d'états de lapins
+ * @return void
+ **/
+/*---------------------------------------------------------------------------*/
 void addBabys(unsigned long babys, unsigned long ** rabbit)
 {
     for(int i = 0; i < babys; i++) {
@@ -98,6 +172,15 @@ void addBabys(unsigned long babys, unsigned long ** rabbit)
     }
 }
 
+/* --------------------------------------------------------------------------*/
+/*  void free_double_tab(unsigned long ** tab, int n)                        */
+/** fonction pour free un tableau de tableaux de unsigned long
+ *
+ * @param  tab tableau
+ * @param  n nombre d'éléments dans le tableau
+ * @return void
+ **/
+/*---------------------------------------------------------------------------*/
 void free_double_tab(unsigned long ** tab, int n)
 {
     for(int i = 0; i < n; i++) {
@@ -106,6 +189,15 @@ void free_double_tab(unsigned long ** tab, int n)
     free(tab);
 }
 
+/* --------------------------------------------------------------------------*/
+/*  unsigned long sum_array(unsigned long array[], int n)                    */
+/** fonction pour faire la somme d'un tableaux de unsigned long
+ *
+ * @param  array tableau
+ * @param  n nombre d'éléments dans le tableau
+ * @return somme
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long sum_array(unsigned long array[], int n)
 {
     unsigned long sum = 0;
@@ -115,6 +207,29 @@ unsigned long sum_array(unsigned long array[], int n)
     return sum;
 }
 
+/* --------------------------------------------------------------------------*/
+/*  unsigned long
+rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
+                      unsigned long ** rabbitsTmp, int year,
+                      double * cumulProbaLitter, double * cumulProbaBabys,
+                      int lenCumulProbaLitter, int lenCumulProbaBabys)       */
+/** fonction qui réalise une itération de la simulation d'évolution de 
+ population de lapin
+ *
+ * @param  config configuration de la simulation
+ * @param  rabbits tableau d'états de lapins
+ * @param  rabbitsTmp tableau d'états de lapins temporaire
+ * @param  year année de l'iteration
+ * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de 
+ portée
+ * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de 
+ bébés par portée
+ * @param  lenCumulProbaLitter longeur du tableau de proba de portée
+ * @param  lenCumulProbaBabys longeur du tableau de proba de bébés
+ * @param  n nombre d'éléments dans le tableau
+ * @return nombre de bébés à ajouter
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long
 rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
                       unsigned long ** rabbitsTmp, int year,
@@ -148,6 +263,15 @@ rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
     return babys;
 }
 
+/* --------------------------------------------------------------------------*/
+/*  unsigned long realistic_simulation_TS(configSimu_t config)               */
+/** fonction pour réaliser une simulation d'évolution de population de lapin 
+ sur plusieurs années avec les configurations données
+ *
+ * @param  config configuration de la simulation
+ * @return nombre de lapin final
+ **/
+/*---------------------------------------------------------------------------*/
 unsigned long realistic_simulation_TS(configSimu_t config)
 {
     unsigned long ** rabbits    = NULL;

@@ -1,0 +1,145 @@
+\hypertarget{main_8c}{}\doxysection{Référence du fichier main.\+c}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Programmes pour réaliser une simulation stocastique de l\textquotesingle{}évolution d\textquotesingle{}une population de lapin.  
+
+
+{\ttfamily \#include \char`\"{}fibo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rabbit.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rabbit\+Tree\+Status.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_acc0bcbacdb61bb1f04477c74de3a7a25}{question1}} ()
+\item 
+double \mbox{\hyperlink{main_8c_a45fec2a7635b4763eb1d65c3fbf69a9a}{compute\+\_\+S}} (unsigned long tab\mbox{[}$\,$\mbox{]}, int n, double moyenne)
+\item 
+double \mbox{\hyperlink{main_8c_a3dc72bc3a8bd89909a94c98acf365083}{calcul\+\_\+moyenne\+\_\+long}} (unsigned long tab\mbox{[}$\,$\mbox{]}, int n)
+\item 
+void \mbox{\hyperlink{main_8c_a91c3888d37d5ba0354596846d56780e7}{intervalle\+\_\+de\+\_\+confiance}} (unsigned long tab\mbox{[}$\,$\mbox{]}, int nb\+Exp)
+\item 
+void \mbox{\hyperlink{main_8c_a4e938e18e8627b410ea167bc279f8400}{question2\+\_\+list}} ()
+\item 
+void \mbox{\hyperlink{main_8c_a591b75da1abbcac5b2108863f6dab8ea}{question2\+\_\+\+TS}} ()
+\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programmes pour réaliser une simulation stocastique de l\textquotesingle{}évolution d\textquotesingle{}une population de lapin. 
+
+\begin{DoxyAuthor}{Auteur}
+Aurelien D\+O\+U\+A\+RD et Anthony B\+E\+R\+T\+R\+A\+ND 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16 mars 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{main_8c_a3dc72bc3a8bd89909a94c98acf365083}\label{main_8c_a3dc72bc3a8bd89909a94c98acf365083}} 
+\index{main.c@{main.c}!calcul\_moyenne\_long@{calcul\_moyenne\_long}}
+\index{calcul\_moyenne\_long@{calcul\_moyenne\_long}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{calcul\_moyenne\_long()}{calcul\_moyenne\_long()}}
+{\footnotesize\ttfamily double calcul\+\_\+moyenne\+\_\+long (\begin{DoxyParamCaption}\item[{unsigned long}]{tab\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+fonction pour calculer la moyenne d\textquotesingle{}un tableau de unsigned long
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau \\
+\hline
+{\em n} & taille du tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+moyenne du tableau 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a45fec2a7635b4763eb1d65c3fbf69a9a}\label{main_8c_a45fec2a7635b4763eb1d65c3fbf69a9a}} 
+\index{main.c@{main.c}!compute\_S@{compute\_S}}
+\index{compute\_S@{compute\_S}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{compute\_S()}{compute\_S()}}
+{\footnotesize\ttfamily double compute\+\_\+S (\begin{DoxyParamCaption}\item[{unsigned long}]{tab\mbox{[}$\,$\mbox{]},  }\item[{int}]{n,  }\item[{double}]{moyenne }\end{DoxyParamCaption})}
+
+calcul l\textquotesingle{}estimateur sans biais de la variance
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau \\
+\hline
+{\em n} & taille du tableau \\
+\hline
+{\em moyenne} & moyenne du tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+S 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a91c3888d37d5ba0354596846d56780e7}\label{main_8c_a91c3888d37d5ba0354596846d56780e7}} 
+\index{main.c@{main.c}!intervalle\_de\_confiance@{intervalle\_de\_confiance}}
+\index{intervalle\_de\_confiance@{intervalle\_de\_confiance}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{intervalle\_de\_confiance()}{intervalle\_de\_confiance()}}
+{\footnotesize\ttfamily void intervalle\+\_\+de\+\_\+confiance (\begin{DoxyParamCaption}\item[{unsigned long}]{tab\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb\+Exp }\end{DoxyParamCaption})}
+
+fonction pour calculer et afficher l\textquotesingle{}intervalle de confiance d\textquotesingle{}un tableau de unsigned long
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau \\
+\hline
+{\em nb\+Exp} & taille du tableau / nombre d\textquotesingle{}espériences \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+point d\textquotesingle{}entré du programe, ici elle appelle question2\+\_\+\+TS et initialise le générateur de nombre pseudo-\/aléatoire
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_acc0bcbacdb61bb1f04477c74de3a7a25}\label{main_8c_acc0bcbacdb61bb1f04477c74de3a7a25}} 
+\index{main.c@{main.c}!question1@{question1}}
+\index{question1@{question1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{question1()}{question1()}}
+{\footnotesize\ttfamily void question1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+calcul le 11 eme élément de la suite de fibonacci avec trois méthodes différentes
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a4e938e18e8627b410ea167bc279f8400}\label{main_8c_a4e938e18e8627b410ea167bc279f8400}} 
+\index{main.c@{main.c}!question2\_list@{question2\_list}}
+\index{question2\_list@{question2\_list}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{question2\_list()}{question2\_list()}}
+{\footnotesize\ttfamily void question2\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+fonction pour réaliser une simulation d\textquotesingle{}évolution de population de lapin avec une structure list
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a591b75da1abbcac5b2108863f6dab8ea}\label{main_8c_a591b75da1abbcac5b2108863f6dab8ea}} 
+\index{main.c@{main.c}!question2\_TS@{question2\_TS}}
+\index{question2\_TS@{question2\_TS}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{question2\_TS()}{question2\_TS()}}
+{\footnotesize\ttfamily void question2\+\_\+\+TS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+fonction pour réaliser une simulation d\textquotesingle{}évolution de population de lapin avec une structure d\textquotesingle{}arbre d\textquotesingle{}états
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}

@@ -1,0 +1,55 @@
+\hypertarget{rabbit_tree_status_8h}{}\doxysection{Référence du fichier rabbit\+Tree\+Status.\+h}
+\label{rabbit_tree_status_8h}\index{rabbitTreeStatus.h@{rabbitTreeStatus.h}}
+
+
+Programmes pour réaliser une simulation stocastique de l\textquotesingle{}évolution d\textquotesingle{}une population de lapin avec des arbres d\textquotesingle{}états.  
+
+
+{\ttfamily \#include \char`\"{}mt19937ar.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reverse\+Dist\+Low.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em configuration d\textquotesingle{}une simulation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \mbox{\hyperlink{rabbit_tree_status_8h_a9af3096182f11b962f6e348da57e08d5}{realistic\+\_\+simulation\+\_\+\+TS}} (\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}} config)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programmes pour réaliser une simulation stocastique de l\textquotesingle{}évolution d\textquotesingle{}une population de lapin avec des arbres d\textquotesingle{}états. 
+
+\begin{DoxyAuthor}{Auteur}
+Aurelien D\+O\+U\+A\+RD et Anthony B\+E\+R\+T\+R\+A\+ND 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16 mars 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{rabbit_tree_status_8h_a9af3096182f11b962f6e348da57e08d5}\label{rabbit_tree_status_8h_a9af3096182f11b962f6e348da57e08d5}} 
+\index{rabbitTreeStatus.h@{rabbitTreeStatus.h}!realistic\_simulation\_TS@{realistic\_simulation\_TS}}
+\index{realistic\_simulation\_TS@{realistic\_simulation\_TS}!rabbitTreeStatus.h@{rabbitTreeStatus.h}}
+\doxysubsubsection{\texorpdfstring{realistic\_simulation\_TS()}{realistic\_simulation\_TS()}}
+{\footnotesize\ttfamily unsigned long realistic\+\_\+simulation\+\_\+\+TS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}}}]{config }\end{DoxyParamCaption})}
+
+fonction pour réaliser une simulation d\textquotesingle{}évolution de population de lapin sur plusieurs années avec les configurations données
+
+
+\begin{DoxyParams}{Paramètres}
+{\em config} & configuration de la simulation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+nombre de lapin final 
+\end{DoxyReturn}

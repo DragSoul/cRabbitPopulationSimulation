@@ -1,0 +1,268 @@
+\hypertarget{rabbit_tree_status_8c}{}\doxysection{Référence du fichier rabbit\+Tree\+Status.\+c}
+\label{rabbit_tree_status_8c}\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+
+
+Programmes pour réaliser une simulation stocastique de l\textquotesingle{}évolution d\textquotesingle{}une population de lapin avec des arbres d\textquotesingle{}états.  
+
+
+{\ttfamily \#include \char`\"{}rabbit\+Tree\+Status.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{rabbit_tree_status_8c_a14755658f30fef270ec813658a364d2c}{check\+Malloc\+Null}} (void $\ast$tab)
+\item 
+unsigned long $\ast$$\ast$ \mbox{\hyperlink{rabbit_tree_status_8c_a0e242751b05f2bf3fd3a5d917eb743ab}{create\+Rabbit\+Tab\+Zero}} (int max\+Rabbit\+Year)
+\item 
+void \mbox{\hyperlink{rabbit_tree_status_8c_af9a9e12e7411e564b93669ccb14409e3}{copy\+Rabit\+Tab}} (unsigned long $\ast$$\ast$src, unsigned long $\ast$$\ast$dest, int max\+Rabbit\+Year)
+\item 
+int \mbox{\hyperlink{rabbit_tree_status_8c_a433d714be4e99037d2ff4401a03f66fe}{survive\+Rabbit\+Year}} (int old, \mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}} config)
+\item 
+unsigned long \mbox{\hyperlink{rabbit_tree_status_8c_aa2177100d1b79e9e3474b20c88b0fde2}{make\+Babys}} (int old, double cumul\+Proba\+Litter\mbox{[}$\,$\mbox{]}, double cumul\+Proba\+Babys\mbox{[}$\,$\mbox{]}, int len\+Cumul\+Proba\+Litter, int len\+Cumul\+Proba\+Babys, int min\+Litter, int min\+Baby)
+\item 
+unsigned long \mbox{\hyperlink{rabbit_tree_status_8c_a119f4c41847f9fccba4706b3ca2c3034}{Calc\+Sum\+Years}} (unsigned long $\ast$$\ast$tab, int max\+Old)
+\item 
+void \mbox{\hyperlink{rabbit_tree_status_8c_a95a825ce00e88c7f51873be92a398119}{add\+Babys}} (unsigned long babys, unsigned long $\ast$$\ast$rabbit)
+\item 
+void \mbox{\hyperlink{rabbit_tree_status_8c_af97784aaa46f547c57989d45d6369276}{free\+\_\+double\+\_\+tab}} (unsigned long $\ast$$\ast$tab, int n)
+\item 
+unsigned long \mbox{\hyperlink{rabbit_tree_status_8c_a9cc23c2abe7535be9b3f48965b9bd51c}{sum\+\_\+array}} (unsigned long array\mbox{[}$\,$\mbox{]}, int n)
+\item 
+unsigned long \mbox{\hyperlink{rabbit_tree_status_8c_a18c7b57b5fe06bab4e56ecfc1cb832c6}{rabbit\+\_\+simu\+\_\+iteration}} (\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}} config, unsigned long $\ast$$\ast$rabbits, unsigned long $\ast$$\ast$rabbits\+Tmp, int year, double $\ast$cumul\+Proba\+Litter, double $\ast$cumul\+Proba\+Babys, int len\+Cumul\+Proba\+Litter, int len\+Cumul\+Proba\+Babys)
+\item 
+unsigned long \mbox{\hyperlink{rabbit_tree_status_8c_a9af3096182f11b962f6e348da57e08d5}{realistic\+\_\+simulation\+\_\+\+TS}} (\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}} config)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programmes pour réaliser une simulation stocastique de l\textquotesingle{}évolution d\textquotesingle{}une population de lapin avec des arbres d\textquotesingle{}états. 
+
+\begin{DoxyAuthor}{Auteur}
+Aurelien D\+O\+U\+A\+RD et Anthony B\+E\+R\+T\+R\+A\+ND 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16 mars 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a95a825ce00e88c7f51873be92a398119}\label{rabbit_tree_status_8c_a95a825ce00e88c7f51873be92a398119}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!addBabys@{addBabys}}
+\index{addBabys@{addBabys}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{addBabys()}{addBabys()}}
+{\footnotesize\ttfamily void add\+Babys (\begin{DoxyParamCaption}\item[{unsigned long}]{babys,  }\item[{unsigned long $\ast$$\ast$}]{rabbit }\end{DoxyParamCaption})}
+
+fonction pour ajouter les lapins a la liste des lapins
+
+
+\begin{DoxyParams}{Paramètres}
+{\em babys} & nombre de bébés a ajouter \\
+\hline
+{\em rabbit} & tableaux d\textquotesingle{}états de lapins \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a119f4c41847f9fccba4706b3ca2c3034}\label{rabbit_tree_status_8c_a119f4c41847f9fccba4706b3ca2c3034}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!CalcSumYears@{CalcSumYears}}
+\index{CalcSumYears@{CalcSumYears}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{CalcSumYears()}{CalcSumYears()}}
+{\footnotesize\ttfamily unsigned long Calc\+Sum\+Years (\begin{DoxyParamCaption}\item[{unsigned long $\ast$$\ast$}]{tab,  }\item[{int}]{max\+Old }\end{DoxyParamCaption})}
+
+fonction pour calculer la somme des lapins
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau \\
+\hline
+{\em max\+Old} & age max des lapins \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la somme des lapins 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a14755658f30fef270ec813658a364d2c}\label{rabbit_tree_status_8c_a14755658f30fef270ec813658a364d2c}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!checkMallocNull@{checkMallocNull}}
+\index{checkMallocNull@{checkMallocNull}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{checkMallocNull()}{checkMallocNull()}}
+{\footnotesize\ttfamily void check\+Malloc\+Null (\begin{DoxyParamCaption}\item[{void $\ast$}]{tab }\end{DoxyParamCaption})}
+
+vérifi si un malloc c\textquotesingle{}est bien passé
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_af9a9e12e7411e564b93669ccb14409e3}\label{rabbit_tree_status_8c_af9a9e12e7411e564b93669ccb14409e3}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!copyRabitTab@{copyRabitTab}}
+\index{copyRabitTab@{copyRabitTab}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{copyRabitTab()}{copyRabitTab()}}
+{\footnotesize\ttfamily void copy\+Rabit\+Tab (\begin{DoxyParamCaption}\item[{unsigned long $\ast$$\ast$}]{src,  }\item[{unsigned long $\ast$$\ast$}]{dest,  }\item[{int}]{max\+Rabbit\+Year }\end{DoxyParamCaption})}
+
+fonction pour copier des tableaux d\textquotesingle{}états de lapin
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & tableau source \\
+\hline
+{\em dest} & tableau de destination \\
+\hline
+{\em max\+Rabbit\+Year} & l\textquotesingle{}age maximum d\textquotesingle{}un lapin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a0e242751b05f2bf3fd3a5d917eb743ab}\label{rabbit_tree_status_8c_a0e242751b05f2bf3fd3a5d917eb743ab}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!createRabbitTabZero@{createRabbitTabZero}}
+\index{createRabbitTabZero@{createRabbitTabZero}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{createRabbitTabZero()}{createRabbitTabZero()}}
+{\footnotesize\ttfamily unsigned long$\ast$$\ast$ create\+Rabbit\+Tab\+Zero (\begin{DoxyParamCaption}\item[{int}]{max\+Rabbit\+Year }\end{DoxyParamCaption})}
+
+crée un tableau pour stocker des états de lapin, initialisé avec des zero
+
+
+\begin{DoxyParams}{Paramètres}
+{\em max\+Rabbit\+Year} & l\textquotesingle{}age maximum d\textquotesingle{}un lapin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un tableau de tableaux de unsigned long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_af97784aaa46f547c57989d45d6369276}\label{rabbit_tree_status_8c_af97784aaa46f547c57989d45d6369276}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!free\_double\_tab@{free\_double\_tab}}
+\index{free\_double\_tab@{free\_double\_tab}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{free\_double\_tab()}{free\_double\_tab()}}
+{\footnotesize\ttfamily void free\+\_\+double\+\_\+tab (\begin{DoxyParamCaption}\item[{unsigned long $\ast$$\ast$}]{tab,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+fonction pour free un tableau de tableaux de unsigned long
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & tableau \\
+\hline
+{\em n} & nombre d\textquotesingle{}éléments dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_aa2177100d1b79e9e3474b20c88b0fde2}\label{rabbit_tree_status_8c_aa2177100d1b79e9e3474b20c88b0fde2}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!makeBabys@{makeBabys}}
+\index{makeBabys@{makeBabys}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{makeBabys()}{makeBabys()}}
+{\footnotesize\ttfamily unsigned long make\+Babys (\begin{DoxyParamCaption}\item[{int}]{old,  }\item[{double}]{cumul\+Proba\+Litter\mbox{[}$\,$\mbox{]},  }\item[{double}]{cumul\+Proba\+Babys\mbox{[}$\,$\mbox{]},  }\item[{int}]{len\+Cumul\+Proba\+Litter,  }\item[{int}]{len\+Cumul\+Proba\+Babys,  }\item[{int}]{min\+Litter,  }\item[{int}]{min\+Baby }\end{DoxyParamCaption})}
+
+fonction pour savoir combien de lapins va faire un lapin donné pendant une année
+
+
+\begin{DoxyParams}{Paramètres}
+{\em old} & age du lapin \\
+\hline
+{\em cumul\+Proba\+Litter} & tableau de probabilité cumulé pour le nombre de portée \\
+\hline
+{\em cumul\+Proba\+Babys} & tableau de probabilité cumulé pour le nombre de bébés par portée \\
+\hline
+{\em len\+Cumul\+Proba\+Litter} & longeur du tableau de proba de portée \\
+\hline
+{\em len\+Cumul\+Proba\+Babys} & longeur du tableau de proba de bébés \\
+\hline
+{\em min\+Litter} & nombre minimum de portées \\
+\hline
+{\em min\+Baby} & nombre minimum de bébés \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 ou 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a18c7b57b5fe06bab4e56ecfc1cb832c6}\label{rabbit_tree_status_8c_a18c7b57b5fe06bab4e56ecfc1cb832c6}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!rabbit\_simu\_iteration@{rabbit\_simu\_iteration}}
+\index{rabbit\_simu\_iteration@{rabbit\_simu\_iteration}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{rabbit\_simu\_iteration()}{rabbit\_simu\_iteration()}}
+{\footnotesize\ttfamily unsigned long rabbit\+\_\+simu\+\_\+iteration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}}}]{config,  }\item[{unsigned long $\ast$$\ast$}]{rabbits,  }\item[{unsigned long $\ast$$\ast$}]{rabbits\+Tmp,  }\item[{int}]{year,  }\item[{double $\ast$}]{cumul\+Proba\+Litter,  }\item[{double $\ast$}]{cumul\+Proba\+Babys,  }\item[{int}]{len\+Cumul\+Proba\+Litter,  }\item[{int}]{len\+Cumul\+Proba\+Babys }\end{DoxyParamCaption})}
+
+fonction qui réalise une itération de la simulation d\textquotesingle{}évolution de population de lapin
+
+
+\begin{DoxyParams}{Paramètres}
+{\em config} & configuration de la simulation \\
+\hline
+{\em rabbits} & tableau d\textquotesingle{}états de lapins \\
+\hline
+{\em rabbits\+Tmp} & tableau d\textquotesingle{}états de lapins temporaire \\
+\hline
+{\em year} & année de l\textquotesingle{}iteration \\
+\hline
+{\em cumul\+Proba\+Litter} & tableau de probabilité cumulé pour le nombre de portée \\
+\hline
+{\em cumul\+Proba\+Babys} & tableau de probabilité cumulé pour le nombre de bébés par portée \\
+\hline
+{\em len\+Cumul\+Proba\+Litter} & longeur du tableau de proba de portée \\
+\hline
+{\em len\+Cumul\+Proba\+Babys} & longeur du tableau de proba de bébés \\
+\hline
+{\em n} & nombre d\textquotesingle{}éléments dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+nombre de bébés à ajouter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a9af3096182f11b962f6e348da57e08d5}\label{rabbit_tree_status_8c_a9af3096182f11b962f6e348da57e08d5}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!realistic\_simulation\_TS@{realistic\_simulation\_TS}}
+\index{realistic\_simulation\_TS@{realistic\_simulation\_TS}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{realistic\_simulation\_TS()}{realistic\_simulation\_TS()}}
+{\footnotesize\ttfamily unsigned long realistic\+\_\+simulation\+\_\+\+TS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}}}]{config }\end{DoxyParamCaption})}
+
+fonction pour réaliser une simulation d\textquotesingle{}évolution de population de lapin sur plusieurs années avec les configurations données
+
+
+\begin{DoxyParams}{Paramètres}
+{\em config} & configuration de la simulation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+nombre de lapin final 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a9cc23c2abe7535be9b3f48965b9bd51c}\label{rabbit_tree_status_8c_a9cc23c2abe7535be9b3f48965b9bd51c}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!sum\_array@{sum\_array}}
+\index{sum\_array@{sum\_array}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{sum\_array()}{sum\_array()}}
+{\footnotesize\ttfamily unsigned long sum\+\_\+array (\begin{DoxyParamCaption}\item[{unsigned long}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+fonction pour faire la somme d\textquotesingle{}un tableaux de unsigned long
+
+
+\begin{DoxyParams}{Paramètres}
+{\em array} & tableau \\
+\hline
+{\em n} & nombre d\textquotesingle{}éléments dans le tableau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+somme 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rabbit_tree_status_8c_a433d714be4e99037d2ff4401a03f66fe}\label{rabbit_tree_status_8c_a433d714be4e99037d2ff4401a03f66fe}} 
+\index{rabbitTreeStatus.c@{rabbitTreeStatus.c}!surviveRabbitYear@{surviveRabbitYear}}
+\index{surviveRabbitYear@{surviveRabbitYear}!rabbitTreeStatus.c@{rabbitTreeStatus.c}}
+\doxysubsubsection{\texorpdfstring{surviveRabbitYear()}{surviveRabbitYear()}}
+{\footnotesize\ttfamily int survive\+Rabbit\+Year (\begin{DoxyParamCaption}\item[{int}]{old,  }\item[{\mbox{\hyperlink{structconfig_simu__t}{config\+Simu\+\_\+t}}}]{config }\end{DoxyParamCaption})}
+
+fonction qui dit si un lapin survie ou non (renvoit 1 ou 0)
+
+
+\begin{DoxyParams}{Paramètres}
+{\em old} & age du lapin \\
+\hline
+{\em config} & configuration de la simulation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 ou 0 
+\end{DoxyReturn}

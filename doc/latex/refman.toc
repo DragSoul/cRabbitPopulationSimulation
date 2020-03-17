@@ -1,0 +1,63 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {french}{}
+\contentsline {chapter}{\numberline {1}c\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rabbit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Population}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Index des structures de données}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Structures de données}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Index des fichiers}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Liste des fichiers}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Documentation des structures de données}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Référence de la structure config\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Simu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Description détaillée}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Documentation des champs}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}ageDisminish}{7}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}initPredator}{8}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}littleRabbitSurvRate}{8}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}maxBabyPerLitter}{8}{subsubsection.4.1.2.4}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}maxLitterPerYear}{8}{subsubsection.4.1.2.5}%
+\contentsline {subsubsection}{\numberline {4.1.2.6}maxRabbitYear}{8}{subsubsection.4.1.2.6}%
+\contentsline {subsubsection}{\numberline {4.1.2.7}maxYear}{8}{subsubsection.4.1.2.7}%
+\contentsline {subsubsection}{\numberline {4.1.2.8}minBabyPerLitter}{8}{subsubsection.4.1.2.8}%
+\contentsline {subsubsection}{\numberline {4.1.2.9}minLitterPerYear}{9}{subsubsection.4.1.2.9}%
+\contentsline {subsubsection}{\numberline {4.1.2.10}probaLittersBabys}{9}{subsubsection.4.1.2.10}%
+\contentsline {subsubsection}{\numberline {4.1.2.11}probaLittersYear}{9}{subsubsection.4.1.2.11}%
+\contentsline {subsubsection}{\numberline {4.1.2.12}rabbitSurvRate}{9}{subsubsection.4.1.2.12}%
+\contentsline {subsubsection}{\numberline {4.1.2.13}rateDisminish}{9}{subsubsection.4.1.2.13}%
+\contentsline {section}{\numberline {4.2}Référence de la structure link}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Référence de la structure rabbit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t}{9}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Documentation des fichiers}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Référence du fichier main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{11}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Description détaillée}{11}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Documentation des fonctions}{12}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}calcul\_moyenne\_long()}{12}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}compute\_S()}{12}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}intervalle\_de\_confiance()}{12}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}main()}{13}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}question1()}{13}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}question2\_list()}{13}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}question2\_TS()}{14}{subsubsection.5.1.2.7}%
+\contentsline {section}{\numberline {5.2}Référence du fichier rabbit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{14}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Description détaillée}{14}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Documentation des fonctions}{14}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}addBabys()}{14}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}CalcSumYears()}{15}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}checkMallocNull()}{15}{subsubsection.5.2.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.2.4}copyRabitTab()}{16}{subsubsection.5.2.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.2.5}createRabbitTabZero()}{16}{subsubsection.5.2.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.2.6}free\_double\_tab()}{16}{subsubsection.5.2.2.6}%
+\contentsline {subsubsection}{\numberline {5.2.2.7}makeBabys()}{17}{subsubsection.5.2.2.7}%
+\contentsline {subsubsection}{\numberline {5.2.2.8}rabbit\_simu\_iteration()}{17}{subsubsection.5.2.2.8}%
+\contentsline {subsubsection}{\numberline {5.2.2.9}realistic\_simulation\_TS()}{18}{subsubsection.5.2.2.9}%
+\contentsline {subsubsection}{\numberline {5.2.2.10}sum\_array()}{18}{subsubsection.5.2.2.10}%
+\contentsline {subsubsection}{\numberline {5.2.2.11}surviveRabbitYear()}{19}{subsubsection.5.2.2.11}%
+\contentsline {section}{\numberline {5.3}Référence du fichier rabbit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Description détaillée}{20}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Documentation des fonctions}{20}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}realistic\_simulation\_TS()}{20}{subsubsection.5.3.2.1}%
+\contentsline {section}{\numberline {5.4}Référence du fichier reverse\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Low.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{20}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Description détaillée}{21}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Documentation des fonctions}{21}{subsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.1}calcCumulProba()}{21}{subsubsection.5.4.2.1}%
+\contentsline {subsubsection}{\numberline {5.4.2.2}discDispLoop()}{21}{subsubsection.5.4.2.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.3}genRand\_discDist()}{22}{subsubsection.5.4.2.3}%
+\contentsline {subsubsection}{\numberline {5.4.2.4}probaCalc()}{22}{subsubsection.5.4.2.4}%
+\contentsline {chapter}{Index}{25}{section*.9}%
