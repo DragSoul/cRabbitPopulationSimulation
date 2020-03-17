@@ -2,7 +2,7 @@
  * \file fibo.c
  * \author Aurelien DOUARD et Anthony BERTRAND
  * \brief Programmes pour calculer les termes de la suite de Fibonacci.
- * \version 0.1 
+ * \version 0.1
  * \date 16 mars 2020
  **/
 
@@ -10,9 +10,9 @@
 
 /* --------------------------------------------------------------------------*/
 /*  unsigned long fibo_recursif(int n)                                       */
-/** fonction pour obtenir le n-ième terme de la suite de Fibonacci 
+/** fonction pour obtenir le n-ième terme de la suite de Fibonacci
  * implémentée récursivement
- * 
+ *
  * @param  n indice du terme voulu
  * @return le terme à la n-ième place dans la suite
  **/
@@ -27,9 +27,9 @@ unsigned long fibo_recursif(int n)
 
 /* --------------------------------------------------------------------------*/
 /*  unsigned long fibo_recurence(int n)                                      */
-/** fonction pour obtenir le n-ième terme de la suite de Fibonacci 
+/** fonction pour obtenir le n-ième terme de la suite de Fibonacci
  * implémentée à l'aide de la formule de récurrence
- * 
+ *
  * @param  n indice du terme voulu
  * @return le terme à la n-ième place dans la suite
  **/
@@ -51,9 +51,9 @@ unsigned long fibo_recurence(int n)
 
 /* --------------------------------------------------------------------------*/
 /*  unsigned long fibo_explicite(int n)                                      */
-/** fonction pour obtenir le n-ième terme de la suite de Fibonacci 
+/** fonction pour obtenir le n-ième terme de la suite de Fibonacci
  * implémentée à l'aide de la formule explicite
- * 
+ *
  * @param  n indice du terme voulu
  * @return le terme à la n-ième place dans la suite
  **/

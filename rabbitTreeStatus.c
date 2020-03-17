@@ -3,7 +3,7 @@
  * \author Aurelien DOUARD et Anthony BERTRAND
  * \brief Programmes pour réaliser une simulation stocastique de l'évolution
  d'une population de lapin avec des arbres d'états
- * \version 0.1 
+ * \version 0.1
  * \date 16 mars 2020
  **/
 
@@ -67,7 +67,6 @@ void copyRabitTab(unsigned long ** src, unsigned long ** dest,
     }
 }
 
-
 /* --------------------------------------------------------------------------*/
 /*  int surviveRabbitYear(int old, configSimu_t config)                      */
 /** fonction qui dit si un lapin survie ou non (renvoit 1 ou 0)
@@ -104,9 +103,9 @@ int surviveRabbitYear(int old, configSimu_t config)
 année
  *
  * @param  old age du lapin
- * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de 
+ * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de
  portée
- * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de 
+ * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de
  bébés par portée
  * @param  lenCumulProbaLitter longeur du tableau de proba de portée
  * @param  lenCumulProbaBabys longeur du tableau de proba de bébés
@@ -214,20 +213,19 @@ rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
                       unsigned long ** rabbitsTmp, int year,
                       double * cumulProbaLitter, double * cumulProbaBabys,
                       int lenCumulProbaLitter, int lenCumulProbaBabys)       */
-/** fonction qui réalise une itération de la simulation d'évolution de 
+/** fonction qui réalise une itération de la simulation d'évolution de
  population de lapin
  *
  * @param  config configuration de la simulation
  * @param  rabbits tableau d'états de lapins
  * @param  rabbitsTmp tableau d'états de lapins temporaire
  * @param  year année de l'iteration
- * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de 
+ * @param  cumulProbaLitter tableau de probabilité cumulé pour le nombre de
  portée
- * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de 
+ * @param  cumulProbaBabys tableau de probabilité cumulé pour le nombre de
  bébés par portée
  * @param  lenCumulProbaLitter longeur du tableau de proba de portée
  * @param  lenCumulProbaBabys longeur du tableau de proba de bébés
- * @param  n nombre d'éléments dans le tableau
  * @return nombre de bébés à ajouter
  **/
 /*---------------------------------------------------------------------------*/
@@ -266,7 +264,7 @@ rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
 
 /* --------------------------------------------------------------------------*/
 /*  unsigned long realistic_simulation_TS(configSimu_t config)               */
-/** fonction pour réaliser une simulation d'évolution de population de lapin 
+/** fonction pour réaliser une simulation d'évolution de population de lapin
  sur plusieurs années avec les configurations données
  *
  * @param  config configuration de la simulation
@@ -303,7 +301,7 @@ unsigned long realistic_simulation_TS(configSimu_t config)
 
     rabbits[0][0]++;
     rabbits[1][0]++;
-    
+
     for(int year = 0; year < config.maxYear; year++) {
         babys = 0;
         copyRabitTab(rabbits, rabbitsTmp, config.maxRabbitYear);
@@ -324,9 +322,10 @@ unsigned long realistic_simulation_TS(configSimu_t config)
         printf("\n");*/
     }
 
-    printf("%d ; %lu", config.maxYear, rabbits[0][config.maxYear]+rabbits[1][config.maxYear]);
-        
-        printf("\n");
+    printf("%d ; %lu", config.maxYear,
+           rabbits[0][config.maxYear] + rabbits[1][config.maxYear]);
+
+    printf("\n");
 
     unsigned long total = 0;
     for(int i = 0; i < 2; i++) {

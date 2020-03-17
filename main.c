@@ -72,7 +72,7 @@ double calcul_moyenne_long(unsigned long tab[], int n)
 
 /* --------------------------------------------------------------------------*/
 /*  void intervalle_de_confiance(unsigned long tab[], int nbExp)             */
-/** fonction pour calculer et afficher l'intervalle de confiance d'un tableau 
+/** fonction pour calculer et afficher l'intervalle de confiance d'un tableau
 de unsigned long
  *
  * @param  tab tableau
@@ -96,7 +96,7 @@ void intervalle_de_confiance(unsigned long tab[], int nbExp)
 
 /* --------------------------------------------------------------------------*/
 /*  void question2_list()                                                    */
-/** fonction pour réaliser une simulation d'évolution de population de lapin 
+/** fonction pour réaliser une simulation d'évolution de population de lapin
 avec une structure list
  *
  * @return void
@@ -109,7 +109,7 @@ void question2_list()
 
 /* --------------------------------------------------------------------------*/
 /*  void question2_TS()                                                      */
-/** fonction pour réaliser une simulation d'évolution de population de lapin 
+/** fonction pour réaliser une simulation d'évolution de population de lapin
 avec une structure d'arbre d'états
  *
  * @return void
@@ -146,7 +146,7 @@ void question2_TS()
 
 /* --------------------------------------------------------------------------*/
 /*  int main()                                                               */
-/** point d'entré du programe, ici elle appelle question2_TS et initialise le 
+/** point d'entré du programe, ici elle appelle question2_TS et initialise le
 générateur de nombre pseudo-aléatoire
  *
  * @return void

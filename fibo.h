@@ -2,7 +2,7 @@
  * \file fibo.h
  * \author Aurelien DOUARD et Anthony BERTRAND
  * \brief Programmes pour calculer les termes de la suite de Fibonacci.
- * \version 0.1 
+ * \version 0.1
  * \date 16 mars 2020
  **/
 
