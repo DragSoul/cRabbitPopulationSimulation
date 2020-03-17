@@ -237,13 +237,13 @@ rabbit_simu_iteration(configSimu_t config, unsigned long ** rabbits,
                       double * cumulProbaLitter, double * cumulProbaBabys,
                       int lenCumulProbaLitter, int lenCumulProbaBabys)
 {
-    int           surv;
+    int           surv  = 1;
     unsigned long babys = 0;
 
     for(int sex = 0; sex < 2; sex++) {
         for(int old = 0; old < config.maxRabbitYear; old++) {
             for(int rab = 0; rab < rabbitsTmp[sex][old]; rab++) {
-                if(config.initPredator < year) {
+                if(config.initPredator <= year) {
                     surv = surviveRabbitYear(old, config);
                 }
                 rabbits[sex][old]--;
@@ -301,9 +301,9 @@ unsigned long realistic_simulation_TS(configSimu_t config)
     rabbits    = createRabbitTabZero(config.maxRabbitYear);
     rabbitsTmp = createRabbitTabZero(config.maxRabbitYear);
 
-    rabbits[0][1]++;
-    rabbits[1][1]++;
-
+    rabbits[0][0]++;
+    rabbits[1][0]++;
+    
     for(int year = 0; year < config.maxYear; year++) {
         babys = 0;
         copyRabitTab(rabbits, rabbitsTmp, config.maxRabbitYear);
@@ -323,6 +323,10 @@ unsigned long realistic_simulation_TS(configSimu_t config)
         }
         printf("\n");*/
     }
+
+    printf("%d ; %lu", config.maxYear, rabbits[0][config.maxYear]+rabbits[1][config.maxYear]);
+        
+        printf("\n");
 
     unsigned long total = 0;
     for(int i = 0; i < 2; i++) {

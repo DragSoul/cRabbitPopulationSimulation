@@ -117,13 +117,13 @@ avec une structure d'arbre d'états
 /*---------------------------------------------------------------------------*/
 void question2_TS()
 {
-    int           nbExp             = 10;
+    int           nbExp             = 5;
     unsigned long tab_exp[10]       = { 0 };
     double        tabProbaLitter[5] = { 0.1, 0.2, 0.4, 0.2, 0.1 };
     double        tabProbaBabys[4]  = { 0.25, 0.25, 0.25, 0.25 };
 
     configSimu_t config;
-    config.maxRabbitYear        = 15;
+    config.maxRabbitYear        = 16;
     config.ageDisminish         = 10;
     config.littleRabbitSurvRate = 0.35;
     config.maxBabyPerLitter     = 6;
@@ -135,7 +135,7 @@ void question2_TS()
     config.probaLittersYear     = tabProbaLitter;
     config.rabbitSurvRate       = 0.6;
     config.rateDisminish        = 0.1;
-    config.initPredator         = 1;
+    config.initPredator         = 0;
 
     for(int i = 0; i < nbExp; i++) {
         printf("exp %d\n", i);
